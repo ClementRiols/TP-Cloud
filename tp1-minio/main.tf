@@ -7,13 +7,14 @@ terraform {
     }
 }
 provider "minio" {
- minio_server = "127.0.0.1:9000"
- minio_user = "minioadmin"
- minio_password = "minioadmin"
- minio_ssl = false
+  minio_server   = var.minio_server
+  minio_user     = var.minio_user
+  minio_password = var.minio_password
+  minio_ssl      = false
 }
+
 resource "minio_s3_bucket" "web_bucket" {
-  bucket = "webbucket"
+  bucket = var.bucket_name
   acl    = "public-read"
 }
 
