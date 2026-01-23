@@ -15,7 +15,7 @@ provider "minio" {
 
 resource "minio_s3_bucket" "web_bucket" {
   bucket = var.bucket_name
-  acl    = "public-read"
+  acl    = "private"
 }
 
 resource "minio_s3_object" "index_html" {
